@@ -368,6 +368,16 @@ h1 {
   margin-top: 20px;
 }
 
+.button-back {
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+  box-shadow: 0 8px 15px rgba(100, 116, 139, 0.3);
+}
+
+.button-back:hover {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+  box-shadow: 0 12px 25px rgba(100, 116, 139, 0.4);
+}
+
 .results-emoji {
   font-size: 80px;
   text-align: center;

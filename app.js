@@ -2,11 +2,13 @@ let currentQuestion = 0;
 let score = 0;
 let answered = false;
 let autoNextTimeoutId = null;
+let answeredQuestions = {};
 
 function startQuiz() {
   currentQuestion = 0;
   score = 0;
   answered = false;
+  answeredQuestions = {};
   clearAutoNextTimeout();
   document.querySelector(".welcome-section").classList.remove("active");
   document.querySelector(".quiz-section").classList.add("active");
@@ -21,7 +23,6 @@ function showQuestion() {
   document.getElementById("questionText").textContent = question.question;
   document.getElementById("feedback").textContent = "";
   document.getElementById("feedback").className = "feedback";
-  document.getElementById("nextButton").style.display = "none";
   answered = false;
 
   const progress = ((currentQuestion) / quizData.length) * 100;
@@ -37,6 +38,31 @@ function showQuestion() {
     button.onclick = () => selectAnswer(index);
     optionsContainer.appendChild(button);
   });
+
+  document.getElementById("prevButton").style.display = currentQuestion > 0 ? "inline-block" : "none";
+
+  if (answeredQuestions[currentQuestion] !== undefined) {
+    answered = true;
+    const savedAnswer = answeredQuestions[currentQuestion];
+    const isCorrect = checkAnswer(question, savedAnswer.answerIndex);
+    const options = document.querySelectorAll(".option");
+    
+    options.forEach((option, optIndex) => {
+      option.disabled = true;
+      if (optIndex === question.correct) {
+        option.classList.add("correct");
+      } else if (optIndex === savedAnswer.answerIndex && !isCorrect) {
+        option.classList.add("incorrect");
+      }
+    });
+
+    document.getElementById("feedback").textContent = savedAnswer.feedback;
+    document.getElementById("feedback").className = savedAnswer.feedbackClass;
+
+    autoNextTimeoutId = setTimeout(() => {
+      nextQuestion();
+    }, 2000);
+  }
 }
 
 function selectAnswer(index) {
@@ -58,6 +84,16 @@ function selectAnswer(index) {
 
   updateScore(isCorrect);
   showAnswerFeedback(question, isCorrect);
+
+  const feedbackText = document.getElementById("feedback").textContent;
+  const feedbackClass = document.getElementById("feedback").className;
+
+  answeredQuestions[currentQuestion] = {
+    answerIndex: index,
+    isCorrect: isCorrect,
+    feedback: feedbackText,
+    feedbackClass: feedbackClass
+  };
 
   autoNextTimeoutId = setTimeout(() => {
     nextQuestion();
@@ -93,6 +129,14 @@ function nextQuestion() {
     showQuestion();
   } else {
     showResults();
+  }
+}
+
+function previousQuestion() {
+  clearAutoNextTimeout();
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    showQuestion();
   }
 }
 
