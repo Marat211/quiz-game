@@ -1,17 +1,20 @@
 let currentQuestion = 0;
 let score = 0;
 let answered = false;
+let autoNextTimeoutId = null;
 
 function startQuiz() {
   currentQuestion = 0;
   score = 0;
   answered = false;
+  clearAutoNextTimeout();
   document.querySelector(".welcome-section").classList.remove("active");
   document.querySelector(".quiz-section").classList.add("active");
   showQuestion();
 }
 
 function showQuestion() {
+  clearAutoNextTimeout();
   const question = quizData[currentQuestion];
   document.getElementById("questionNumber").textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
   document.getElementById("questionEmoji").textContent = question.emoji;
@@ -57,6 +60,9 @@ function selectAnswer(index) {
   showAnswerFeedback(question, isCorrect);
 
   document.getElementById("nextButton").style.display = "inline-block";
+  autoNextTimeoutId = setTimeout(() => {
+    nextQuestion();
+  }, 1500);
 }
 
 function checkAnswer(question, selectedIndex) {
@@ -81,12 +87,20 @@ function showAnswerFeedback(question, isCorrect) {
 }
 
 function nextQuestion() {
+  clearAutoNextTimeout();
   currentQuestion++;
 
   if (currentQuestion < quizData.length) {
     showQuestion();
   } else {
     showResults();
+  }
+}
+
+function clearAutoNextTimeout() {
+  if (autoNextTimeoutId !== null) {
+    clearTimeout(autoNextTimeoutId);
+    autoNextTimeoutId = null;
   }
 }
 
