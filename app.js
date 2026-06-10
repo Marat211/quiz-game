@@ -104,6 +104,7 @@ function clearAutoNextTimeout() {
 }
 
 function showResults() {
+  clearAutoNextTimeout();
   document.querySelector(".quiz-section").classList.remove("active");
   document.querySelector(".results-section").classList.add("active");
 
@@ -133,6 +134,20 @@ function showResults() {
 
   document.getElementById("resultEmoji").textContent = emoji;
   document.getElementById("resultMessage").textContent = message;
+
+  let countdown = 5;
+  const timerElement = document.getElementById("restartTimer");
+  timerElement.textContent = `Restarting in ${countdown}s...`;
+
+  const countdownInterval = setInterval(() => {
+    countdown--;
+    if (countdown > 0) {
+      timerElement.textContent = `Restarting in ${countdown}s...`;
+    } else {
+      clearInterval(countdownInterval);
+      restartQuiz();
+    }
+  }, 1000);
 }
 
 function restartQuiz() {
