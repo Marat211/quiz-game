@@ -59,10 +59,9 @@ function selectAnswer(index) {
   updateScore(isCorrect);
   showAnswerFeedback(question, isCorrect);
 
-  document.getElementById("nextButton").style.display = "inline-block";
   autoNextTimeoutId = setTimeout(() => {
     nextQuestion();
-  }, 1500);
+  }, 2000);
 }
 
 function checkAnswer(question, selectedIndex) {
