@@ -88,6 +88,64 @@ body::before {
   margin-bottom: 30px;
 }
 
+.mascot-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 25px;
+  padding: 18px 22px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(102, 126, 234, 0.12) 100%);
+  border: 2px solid rgba(102, 126, 234, 0.18);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.15);
+  animation: float 3s ease-in-out infinite;
+}
+
+.mascot-emoji {
+  font-size: 3rem;
+  animation: bounce 1.8s infinite;
+}
+
+.mascot-message {
+  font-size: 1rem;
+  color: #334155;
+  font-weight: 700;
+  line-height: 1.4;
+  max-width: 420px;
+}
+
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.95;
+  animation: confettiFall 1.5s ease-out forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120px) translateX(30px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
 .emoji-title {
   font-size: 60px;
   margin-bottom: 15px;
@@ -199,6 +257,16 @@ h1 {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
   border-radius: 15px;
   border-left: 4px solid #667eea;
+}
+
+.hint {
+  color: #334155;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px dashed rgba(99, 102, 241, 0.35);
 }
 
 .question-emoji {

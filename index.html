@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="confetti-container" id="confettiContainer"></div>
     <div class="container">
       <div class="header">
         <div class="emoji-title">🧩</div>
         <h1>Animal Trivia</h1>
         <p class="subtitle">Test your knowledge about amazing animals!</p>
+      </div>
+
+      <div class="mascot-card">
+        <div class="mascot-emoji" id="mascotEmoji">🦊</div>
+        <p class="mascot-message" id="mascotMessage">Hi friend! Tap Start to meet the animal squad!</p>
       </div>
 
       <!-- Welcome Section -->
@@ -34,6 +40,7 @@
         <div class="question-number" id="questionNumber"></div>
         <div class="question-emoji" id="questionEmoji"></div>
         <div class="question" id="questionText"></div>
+        <div class="hint" id="questionHint"></div>
         <div class="feedback" id="feedback"></div>
         <div class="options" id="optionsContainer"></div>
         <div class="button-group">
@@ -51,6 +58,9 @@
         <div class="results-message" id="resultMessage"></div>
         <div class="score-breakdown">
           <p id="scoreBreakdown"></p>
+        </div>
+        <div class="button-group">
+          <button class="button" onclick="restartQuiz()">Play Again 🎉</button>
         </div>
         <div class="restart-timer" id="restartTimer"></div>
       </div>

@@ -4,6 +4,7 @@ const quizData = [
     question: "What is the fastest land animal?",
     options: ["Cheetah", "Greyhound", "Antelope", "Ostrich"],
     correct: 0,
+    hint: "This animal has spots and is super speedy.",
     fact: "Cheetahs can run up to 70 mph!"
   },
   {
@@ -11,6 +12,7 @@ const quizData = [
     question: "How many years do elephants typically live?",
     options: ["30 years", "50 years", "70 years", "40 years"],
     correct: 2,
+    hint: "This giant friend has a long trunk and strong memory.",
     fact: "Elephants are one of the longest-living mammals!"
   },
   {
@@ -18,6 +20,7 @@ const quizData = [
     question: "How tall can a giraffe get?",
     options: ["12 feet", "18 feet", "24 feet", "30 feet"],
     correct: 2,
+    hint: "This animal has a very long neck and eats leaves from high trees.",
     fact: "A giraffe's neck alone can be 6 feet long!"
   },
   {
@@ -25,6 +28,7 @@ const quizData = [
     question: "Where do most penguin species live?",
     options: ["Arctic", "Antarctica", "Greenland", "Iceland"],
     correct: 1,
+    hint: "These birds love cold places and waddle on ice.",
     fact: "Penguins are found in the Southern Hemisphere, mostly in Antarctica!"
   },
   {
@@ -32,6 +36,7 @@ const quizData = [
     question: "What do dolphins use to navigate underwater?",
     options: ["Their eyes", "Echolocation", "Magnetic fields", "Sound waves"],
     correct: 1,
+    hint: "This clever swimmer uses sound to find friends and food.",
     fact: "Dolphins use echolocation to find food and navigate!"
   },
   {
@@ -39,6 +44,7 @@ const quizData = [
     question: "What is the eyesight ability of an eagle compared to humans?",
     options: ["2x better", "4x better", "8x better", "10x better"],
     correct: 2,
+    hint: "This bird can see tiny things from very far away.",
     fact: "Eagles have about 8 times better eyesight than humans!"
   },
   {
@@ -46,6 +52,7 @@ const quizData = [
     question: "How old can some sea turtles live?",
     options: ["30 years", "50 years", "80+ years", "100+ years"],
     correct: 2,
+    hint: "This slow swimmer can live longer than many people.",
     fact: "Some sea turtles can live for over 80 years!"
   },
   {
@@ -53,6 +60,7 @@ const quizData = [
     question: "How far can a kangaroo jump in one leap?",
     options: ["10 feet", "20 feet", "30 feet", "40 feet"],
     correct: 2,
+    hint: "This animal carries its baby in a pouch and hops really far.",
     fact: "Kangaroos can jump up to 30 feet in a single bound!"
   },
   {
@@ -60,6 +68,7 @@ const quizData = [
     question: "What is the largest animal on Earth?",
     options: ["African Elephant", "Giraffe", "Blue Whale", "Hippopotamus"],
     correct: 2,
+    hint: "This enormous ocean giant is bigger than any dinosaur.",
     fact: "The Blue Whale is the largest animal ever known to exist!"
   },
   {
@@ -67,6 +76,7 @@ const quizData = [
     question: "How many spines does a hedgehog have?",
     options: ["Approximately 500", "Approximately 2,000", "Approximately 5,000", "Approximately 10,000"],
     correct: 2,
+    hint: "This little animal curls up into a ball when it feels scared.",
     fact: "Hedgehogs have around 5,000 spines on their body!"
   }
 ];
